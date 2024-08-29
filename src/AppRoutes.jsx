@@ -1,12 +1,12 @@
 import { Routes, Route } from 'react-router'
 
-import HomePage from './pages/HomePage'
+import { HomePage, NotFoundPage } from './pages'
 
 const AppRoutes = () => {
     return (
         <Routes>
             <Route path='/' element={<HomePage />} />
-            <Route path='*' element={"Página não encontrada"} />
+            <Route path='*' element={<NotFoundPage />} />
         </Routes>
     )
 }
