@@ -44,16 +44,18 @@ const useAuth = () => {
     const signIn = async (email, password) => {
         try {
             const response = await api.post("/auth/signin", { email, password })
+
             if (response.status === 200) {
                 localStorage.setItem("accessToken", token)
                 setToken(token)
                 setUser(user)
-                navigate("/entrar")
+                navigate("/")
             }
         } catch (error) {
             if (error.response?.status === 401) {
                 return "Credenciais incorretas"
             }
+
             return error.message
         }
     }
@@ -62,7 +64,7 @@ const useAuth = () => {
         localStorage.removeItem("accessToken")
         setToken(null)
         setUser(null)
-        navigate("/entrar")
+        navigate("/")
     }
 
     return { user, token, loading, signUp, signIn, signOut }
