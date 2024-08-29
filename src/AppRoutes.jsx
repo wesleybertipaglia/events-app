@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router'
 
 import { HomePage, NotFoundPage } from './pages'
-import { EventListPage } from './pages/event'
+import { EventListPage, EventDetailsPage } from './pages/event'
 
 const AppRoutes = () => {
     return (
@@ -10,6 +10,7 @@ const AppRoutes = () => {
             <Route path='*' element={<NotFoundPage />} />
 
             <Route path='/eventos' element={<EventListPage />} />
+            <Route path='/eventos/:id' element={<EventDetailsPage />} />
         </Routes>
     )
 }

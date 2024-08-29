@@ -1,5 +1,7 @@
-import EventListPage from "./EventListPage";
+import EventListPage from "./EventListPage"
+import EventDetailsPage from "./EventDetailsPage"
 
 export {
-    EventListPage
+    EventListPage,
+    EventDetailsPage
 }
