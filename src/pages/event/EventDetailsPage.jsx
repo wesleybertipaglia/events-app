@@ -16,7 +16,13 @@ const EventDetailsPage = () => {
     }
 
     return (
-        <EventDetailsView event={event} />
+        event ? (
+            <EventDetailsView event={event} />
+        ) : (
+            <Container classList={"py-5"}>
+                <p>Evento não encontrado</p>
+            </Container>
+        )
     )
 }
 

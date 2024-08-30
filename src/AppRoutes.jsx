@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router'
 import { ProtectedRoute } from './components/auth'
 import { HomePage, NotFoundPage } from './pages'
-import { EventListPage, EventDetailsPage } from './pages/event'
+import { EventListPage, EventDetailsPage, EventCreatePage, EventUpdatePage } from './pages/event'
 import { SignUpPage, SignInPage } from './pages/auth'
 import { ProfileDetailsPage, ProfileUpdatePage } from './pages/profile'
 
@@ -13,6 +13,8 @@ const AppRoutes = () => {
 
             <Route path='/eventos' element={<EventListPage />} />
             <Route path='/eventos/:id' element={<EventDetailsPage />} />
+            <Route path='/eventos/novo' element={<ProtectedRoute element={EventCreatePage} />} />
+            <Route path='/eventos/:id/editar' element={<ProtectedRoute element={EventUpdatePage} />} />
 
             <Route path='/cadastrar' element={<SignUpPage />} />
             <Route path='/entrar' element={<SignInPage />} />

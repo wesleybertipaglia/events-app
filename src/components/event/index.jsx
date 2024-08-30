@@ -1,7 +1,11 @@
 import EventListView from "./EventListView"
 import EventDetailsView from "./EventDetailsView"
+import EventCreateForm from "./EventCreateForm"
+import EventUpdateForm from "./EventUpdateForm"
 
 export {
     EventListView,
-    EventDetailsView
+    EventDetailsView,
+    EventCreateForm,
+    EventUpdateForm
 }
