@@ -6,9 +6,8 @@ import { useNavigate } from 'react-router'
 const EventUpdateForm = ({ event }) => {
     const api = useApi()
     const navigate = useNavigate()
-    const [errorMessage, setErrorMessage] = useState("")
-
     const minDate = new Date().toISOString().split("T")[0]
+    const [errorMessage, setErrorMessage] = useState("")
     const [title, setTitle] = useState(event.title || "")
     const [description, setDescription] = useState(event.description || "")
     const [location, setLocation] = useState(event.location || "")
@@ -96,7 +95,7 @@ const EventUpdateForm = ({ event }) => {
             </div>
 
             <button type="submit" className="btn btn-primary">
-                Cadastrar
+                Atualizar
             </button>
         </BaseForm >
     )

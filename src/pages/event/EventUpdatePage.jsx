@@ -1,13 +1,14 @@
 import { Navigate, useParams } from 'react-router'
-import { useFetch, useIsOwner } from '../../hooks'
+import { useFetch } from '../../hooks'
 import { EventUpdateForm } from '../../components/event'
 import { Container } from '../../components/layout'
 
 const EventUpdatePage = () => {
     const { id } = useParams()
     const { data: event, loading: loadingEvent } = useFetch(`/events/${id}`)
+    const { data: isOwner, loading: loadingOwner } = useFetch(`/events/${id}/is-owner`)
 
-    if (loadingEvent) {
+    if (loadingEvent || loadingOwner) {
         return (
             <Container classList="py-5">
                 <p>Carregando...</p>
@@ -15,11 +16,8 @@ const EventUpdatePage = () => {
         )
     }
 
-    const ownerLink = event.links.find((link) => link.rel === "owner")
-    const { owner, isOwner, loading } = useIsOwner(ownerLink)
-
-    if (!loading && owner && !isOwner) {
-        <Navigate to="/" />
+    if (!loadingOwner && !isOwner) {
+        return <Navigate to="/" />
     }
 
     return event ? (
