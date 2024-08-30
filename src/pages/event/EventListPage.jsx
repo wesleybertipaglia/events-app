@@ -1,4 +1,3 @@
-import React from 'react'
 import { ListAll } from '../../components/common/'
 import { EventListView } from '../../components/event'
 
