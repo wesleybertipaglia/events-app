@@ -4,7 +4,6 @@ import useApi from './useApi'
 const useFetch = (apiUrl) => {
     const [data, setData] = useState(null)
     const [loading, setLoading] = useState(true)
-
     const api = useApi()
 
     const fetchData = async () => {

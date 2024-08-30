@@ -1,7 +1,8 @@
 import { Container } from '../layout'
+import EventActions from './EventActions'
 
 const EventDetailsView = ({ event }) => {
-    const { title, description, image, date, location } = event
+    const { id, title, description, image, date, location } = event
 
     return (
         <Container classList="py-5">
@@ -26,6 +27,8 @@ const EventDetailsView = ({ event }) => {
                     <h4>Sobre</h4>
                     <p style={{ whiteSpace: 'pre-line' }}>{description}</p>
                 </div>
+
+                <EventActions eventId={id} />
             </div>
         </Container>
     )
