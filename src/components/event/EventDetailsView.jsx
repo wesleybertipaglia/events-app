@@ -4,6 +4,16 @@ import EventActions from './EventActions'
 const EventDetailsView = ({ event, isOwner, isAttending }) => {
     const { id, title, description, image, date, location } = event
 
+    const formatDate = (date) => {
+        return new Intl.DateTimeFormat('pt-BR', {
+            day: '2-digit',
+            month: 'long',
+            year: 'numeric',
+            weekday: 'long',
+            timeZone: 'UTC'
+        }).format(date)
+    }
+
     return (
         <Container classList="py-5">
             <figure>
@@ -18,7 +28,7 @@ const EventDetailsView = ({ event, isOwner, isAttending }) => {
                 <div className='border-bottom pb-3'>
                     <div className=''>
                         <h2 className='font-bold'>{title}</h2>
-                        <p className='m-0'>🗓️ {new Date(date).toDateString()}</p>
+                        <p className='m-0'>🗓️ {formatDate(new Date(date))}</p>
                         <p className='m-0'>📍 {location}</p>
                     </div>
                 </div>
