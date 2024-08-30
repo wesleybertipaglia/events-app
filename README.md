@@ -4,6 +4,8 @@ Events App is a front-end application that allows users to create, update, delet
 
 This project is the front-end part of the [Events API](https://github.com/wesleybertipaglia/events-api) project.
 
+I have published a tutorial on how to create this project on Notion. You can access it [here](https://www.notion.so/wesleybertipaglia/Eventos-App-d4fb34b00c854c2eb53dba72dcba5add).
+
 ![Screenshot](screenshot.jpg)
 
 ## Table of Contents
