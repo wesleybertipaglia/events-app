@@ -28,7 +28,7 @@ const EventDetailsView = ({ event, isOwner, isAttending }) => {
                     <p style={{ whiteSpace: 'pre-line' }}>{description}</p>
                 </div>
 
-                <EventActions eventId={id} isOwner={isOwner} isAttending={isAttending} />
+                <EventActions eventId={id} isOwner={isOwner} isAttendingFirst={isAttending} />
             </div>
         </Container>
     )
