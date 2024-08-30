@@ -42,7 +42,7 @@ const ListAll = ({ apiUrl, title, renderItem }) => {
                     className="btn btn-primary"
                     disabled={page === 0}
                 >
-                    <Link to={`?query=${query}&page=${page + 1}&size=${size}`}
+                    <Link to={`?query=${query}&page=${page - 1}&size=${size}`}
                         className='text-reset text-decoration-none'>Página Anterior</Link>
                 </button>
                 <span>Página {page + 1} / {data?.totalPages}</span>

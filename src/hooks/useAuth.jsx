@@ -46,9 +46,9 @@ const useAuth = () => {
             const response = await api.post("/auth/signin", { email, password })
 
             if (response.status === 200) {
-                localStorage.setItem("accessToken", token)
-                setToken(token)
-                setUser(user)
+                setUser(response.data.user)
+                setToken(response.data.accessToken)
+                localStorage.setItem("accessToken", response.data.accessToken)
                 navigate("/")
             }
         } catch (error) {
@@ -67,7 +67,31 @@ const useAuth = () => {
         navigate("/")
     }
 
-    return { user, token, loading, signUp, signIn, signOut }
+    const updateAccount = async (name, email, image) => {
+        try {
+            const response = await api.put("/profile", { name, email, image })
+            if (response.status === 200) {
+                setUser({ ...user, name, email, image })
+                navigate("/perfil")
+            }
+        } catch (error) {
+            if (error.response?.status === 401) {
+                return "E-mail já está em uso"
+            }
+            return error.message
+        }
+    }
+
+    const deleteAccount = async () => {
+        try {
+            await api.delete("/profile")
+            signOut()
+        } catch (error) {
+            console.error("Ocorreu um erro: ", error)
+        }
+    }
+
+    return { user, token, loading, signUp, signIn, signOut, updateAccount, deleteAccount }
 }
 
 export default useAuth
