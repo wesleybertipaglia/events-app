@@ -1,4 +1,4 @@
-import { useAuthContext } from "../../context/AuthContext"
+import { useAuthContext } from "../../context/AuthProvider"
 import { Navigate } from "react-router"
 import { Container } from "../layout"
 

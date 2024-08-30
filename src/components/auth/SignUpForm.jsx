@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '../../context/AuthProvider'
 import { BaseForm } from '../common'
 
 const SignUpForm = () => {

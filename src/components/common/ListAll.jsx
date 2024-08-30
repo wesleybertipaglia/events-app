@@ -1,6 +1,5 @@
 import { useSearchParams } from 'react-router-dom'
 import { useFetch } from '../../hooks'
-
 import { Container } from '../layout'
 import { Link } from 'react-router-dom'
 

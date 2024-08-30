@@ -1,9 +1,9 @@
 import React, { useState } from "react"
-import { useAuthContext } from "../../context/AuthContext"
+import { useAuthContext } from "../../context/AuthProvider"
 import BaseForm from "../common/BaseForm"
 
-const ProfileUpdateForm = ({ user }) => {
-    const { updateAccount } = useAuthContext()
+const ProfileUpdateForm = () => {
+    const { user, updateAccount } = useAuthContext()
     const [name, setName] = useState(user.name || "")
     const [email, setEmail] = useState(user.email || "")
     const [image, setImage] = useState(user.image || "")
@@ -57,7 +57,7 @@ const ProfileUpdateForm = ({ user }) => {
                     type="text"
                     id="image"
                     value={image}
-                    maxLength={100}
+                    maxLength={200}
                     className="form-control"
                     onChange={(e) => setImage(e.target.value)}
                 />

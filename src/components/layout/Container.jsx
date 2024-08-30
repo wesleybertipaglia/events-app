@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Container = ({ classList, children }) => {
     return (
         <section className={classList}>

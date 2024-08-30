@@ -1,7 +1,7 @@
 import { Container } from '../layout'
 import EventActions from './EventActions'
 
-const EventDetailsView = ({ event }) => {
+const EventDetailsView = ({ event, isOwner, isAttending }) => {
     const { id, title, description, image, date, location } = event
 
     return (
@@ -28,7 +28,7 @@ const EventDetailsView = ({ event }) => {
                     <p style={{ whiteSpace: 'pre-line' }}>{description}</p>
                 </div>
 
-                <EventActions eventId={id} />
+                <EventActions eventId={id} isOwner={isOwner} isAttending={isAttending} />
             </div>
         </Container>
     )

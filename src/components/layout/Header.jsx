@@ -1,4 +1,4 @@
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '../../context/AuthProvider'
 import Container from './Container'
 import { Avatar } from '../common'
 import { Link } from 'react-router-dom'

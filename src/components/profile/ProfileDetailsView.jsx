@@ -1,11 +1,11 @@
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '../../context/AuthProvider'
 import { Link } from "react-router-dom"
 import { Avatar, ListGrid } from "../common"
 import { EventListView } from "../event"
 import { Container } from "../layout"
 
-const ProfileDetailsView = ({ user }) => {
-    const { deleteAccount } = useAuthContext()
+const ProfileDetailsView = () => {
+    const { user, deleteAccount } = useAuthContext()
     const { name, email, image, links } = user
     const eventsLink = links.find(link => link.rel === "events").href.replace("size=10", "size=4")
     const attendancesLink = links.find(link => link.rel === "attendances").href.replace("size=10", "size=4")

@@ -5,9 +5,11 @@ import { Container } from '../../components/layout'
 
 const EventDetailsPage = () => {
     const { id } = useParams()
-    const { data: event, loading } = useFetch(`/events/${id}`)
+    const { data: event, loading: loadingEvent } = useFetch(`/events/${id}`)
+    const { data: isOwner, loading: loadingOwner } = useFetch(`/events/${id}/is-owner`)
+    const { data: isAttending, loading: loadingIsAttending } = useFetch(`/events/${id}/is-attending`)
 
-    if (loading) {
+    if (loadingEvent || loadingOwner || loadingIsAttending) {
         return (
             <Container classList="py-5">
                 <p>Carregando...</p>
@@ -15,14 +17,12 @@ const EventDetailsPage = () => {
         )
     }
 
-    return (
-        event ? (
-            <EventDetailsView event={event} />
-        ) : (
-            <Container classList={"py-5"}>
-                <p>Evento não encontrado</p>
-            </Container>
-        )
+    return event ? (
+        <EventDetailsView event={event} isOwner={isOwner} isAttending={isAttending} />
+    ) : (
+        <Container classList="py-5">
+            <p>Evento não encontrado</p>
+        </Container>
     )
 }
 
